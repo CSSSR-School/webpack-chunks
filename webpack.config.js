@@ -5,7 +5,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: '[name].js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
@@ -23,7 +24,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['es2015', 'react']
+            presets: ['es2015', 'react'],
+            plugins: ["syntax-dynamic-import"]
           }
         }
       },
@@ -32,6 +34,11 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist')

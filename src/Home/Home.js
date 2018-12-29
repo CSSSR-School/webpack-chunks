@@ -1,7 +1,7 @@
 import React from "react";
-import { getAwesomeText } from '../utils/get-awesome-data';
 
 require('./Home.css');
+
 
 export default class Home extends React.PureComponent {
   constructor(...args) {
@@ -15,9 +15,15 @@ export default class Home extends React.PureComponent {
   }
 
   handleLoadClick() {
-    this.setState({
-      data: getAwesomeText()
-    })
+    import(/* webpackChunkName: "awesome-data" */'../utils/get-awesome-data')
+      .then(({ getAwesomeText }) => {
+        this.setState({
+          data: getAwesomeText()
+        })
+      })
+      .catch(err => {
+        console.error(err.message);
+      });
   };
 
   render() {
