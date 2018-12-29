@@ -1,0 +1,22 @@
+.Navigation {
+  margin-bottom: 20px;
+  background: #f9e8ab;
+}
+
+.Navigation__list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.Navigation__item {
+  display: block;
+  padding: 10px 16px;
+  list-style-type: none;
+  font-size: 16px;
+}
+
+.Navigation__item a {
+  color: rgb(51, 142, 247);
+  text-decoration: none;
+}

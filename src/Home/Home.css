@@ -1,0 +1,16 @@
+.Home {
+  width: 100%;
+}
+
+.Home__title {
+  margin: 16px 0 24px;
+}
+
+.Home__load {
+  font-size: 16px;
+  padding: 16px;
+}
+
+.Home__data {
+  margin-top: 64px;
+}
